@@ -40,7 +40,7 @@ CONCURRENT_REQUESTS = 32
 
 # Override the default request headers:
 DEFAULT_REQUEST_HEADERS = {
-  'User-Agent':'Mozilla/5.0',
+  #'User-Agent':'Mozilla/5.0',
   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
   'Accept-Language': 'en',
 }
@@ -53,9 +53,13 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'Star.middlewares.StarDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+#     'Star.middlewares.StarDownloaderMiddleware': 543,
+    'Star.middlewares.RandomUserAgentMiddleware': 543,
+#     'Star.middlewares.ProxyMiddleware': 544,
+
+  
+}
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
