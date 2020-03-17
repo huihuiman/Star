@@ -101,3 +101,14 @@ class TengxunDownloaderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+        
+from Star.user_agents import user_agents
+import random
+
+class RandomUserAgentMiddleware(object):
+    def process_request(self, request, spider):
+        request.headers["User-Agent"] = random.choice(user_agents)
+
+# class ProxyMiddleware(object):
+#     def process_request(self,request,spider):
+        # request.meta['proxy'] = "http://"
