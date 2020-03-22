@@ -18,14 +18,14 @@ class StarSpider(scrapy.Spider):
 
     def parse(self, response):
         for i in range(0,12):
-            yield scrapy.Request(self.url+str(i),callback=self.parseHtml)
+            yield scrapy.Request(self.url+str(i),callback=self.parseHtml,dont_filter=True)
 
     def parseHtml(self,response):
         base_list = response.xpath('//div[@class="TODAY_CONTENT"]')
-
+        item = StarItem()
         for base in base_list:
-            item = StarItem()
             item['starName'] = base.xpath('./h3/text()').extract()[0][2:5] #星座名稱
+            item['link'] = response.xpath('//div[@class="STARBABY"]/img/@src').extract()[0] #星座圖片
             todayTime = datetime.date.today()
             todayTime = str(todayTime)
             item['starDay'] = todayTime #當天日期
@@ -37,6 +37,7 @@ class StarSpider(scrapy.Spider):
             item['business2'] = base.xpath('./p/text()').extract()[2] #事學業運勢
             item['money1'] = base.xpath('./p/span/text()').extract()[3] #財運運勢期望
             item['money2'] = base.xpath('./p/text()').extract()[3] #財運運勢
+
             yield item
 
 
