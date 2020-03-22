@@ -7,13 +7,13 @@
 <br>
 並把資料存入數據庫中<br>
 <br>
-starName = 星座名稱
-starDay = 當天日期
-all1 = 整體運勢
-love = 愛情運勢
-business1 = 事業學業運勢
-money = 財運運勢
-link = 圖片
+starName = 星座名稱<br>
+starDay = 當天日期<br>
+all1 = 整體運勢<br>
+love = 愛情運勢<br>
+business1 = 事業學業運勢<br>
+money = 財運運勢<br>
+link = 圖片<br>
 <br>
 
 
