@@ -43,16 +43,6 @@ class StarmysqlPipeline(object):
         self.cursor = self.db.cursor()
 
     def process_item(self,item,spider):
-        '''    starName = scrapy.Field()
-    starDay = scrapy.Field()
-    all1 = scrapy.Field()
-    all2 = scrapy.Field()
-    love1 = scrapy.Field()
-    love2 = scrapy.Field()
-    business1 = scrapy.Field()
-    business2 = scrapy.Field()
-    money1 = scrapy.Field()
-    money2 = scrapy.Field()'''
         ins = 'insert into starTable values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
         L = [item['starName'],item['starDay'],item['all1'],\
              item['all2'],item['love1'], \
