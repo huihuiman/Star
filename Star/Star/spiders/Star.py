@@ -10,7 +10,6 @@ class StarSpider(scrapy.Spider):
     allowed_domains = ['astro.click108.com.tw']
     todayTime = datetime.date.today()
     todayTime = str(todayTime)
-    print(todayTime)
     times = "http://astro.click108.com.tw/daily_1.php?iAcDay="+todayTime+"&iAstro="
     url = times
     offset = 1
